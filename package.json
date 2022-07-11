@@ -1,0 +1,14 @@
+{
+  "name": "picnic",
+  "version": "1.0.0",
+  "description": "example usage:",
+  "main": "picnic-planner.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^10.0.0"
+  }
+}
