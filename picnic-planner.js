@@ -10,14 +10,14 @@ const locationStr = args[0];
 const location = locationStr.charAt(0).toUpperCase() + locationStr.slice(1);
 
 const API_KEY = process.env.API_KEY;
-const UNIT_GROUP = "us";
+const UNIT_GROUP = "metric";
 const contentType = "json";
 const weekendTime = getComingWeekend();
 
 let requestUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${encodeURIComponent(
   location
 )}/${weekendTime}`;
-requestUrl += `?unitGroup=${UNIT_GROUP}&key=${API_KEY}&contentType=${contentType}`;
+requestUrl += `?unitGroup=${UNIT_GROUP}&key=${API_KEY}&contentType=${contentType}&elements=datetime%2Ctemp%2Cdew%2Chumidity%2Csnow%2Cconditions%2Cdescription%2Cicon`;
 
 const options = {
   hostname: "weather.visualcrossing.com",
@@ -27,6 +27,7 @@ const options = {
 
 getWeatherData(options)
   .then((weather) => {
+    console.log(weather)
     console.log(suggestion(weather));
   })
   .catch((error) => {
